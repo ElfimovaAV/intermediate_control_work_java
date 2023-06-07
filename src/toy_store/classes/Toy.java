@@ -1,38 +1,23 @@
 package toy_store.classes;
 
 @SuppressWarnings("ALL")
-public class Toy implements Comparable<Toy> {
-    public int id;
-    public String name;
-    public int weight;
+public class Toy {
+    int id;
+    String name;
+    double weight;
 
-    public Toy(int id, String name, int weight) {
+    public Toy(int id, String name, double weight) {
         this.id = id;
         this.name = name;
         this.weight = weight;
     }
 
-    public String getName() {
-        return name;
+    public void setWeight(float weight) {
+        this.weight = weight;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getWeight() {
+    public double getWeight() {
         return weight;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-    public int getId() {
-        return id;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
     }
 
     @Override
@@ -40,8 +25,4 @@ public class Toy implements Comparable<Toy> {
         return "Идентификатор игрушки:" + id + "; Имя: " + name + "; Вес: " + weight;
     }
 
-    @Override
-    public int compareTo(Toy o) {
-        return o.getWeight() - this.getWeight();
-    }
 }
