@@ -11,14 +11,14 @@ public class ToyStore {
         this.toys = toys;
     }
 
-    public Toy getToyForPrice() {
+    public Toy getToysAwaitingDelivery() {
         RandomToyChooser random = new RandomToyChooser();
         Toy toy = random.chooseOnWeight(toys);
         return toy;
     }
 
-    public void saveToyForLottery() {
-        Toy toy = getToyForPrice();
+    public void getPrizeToy() {
+        Toy toy = getToysAwaitingDelivery();
         String text = toy.toString();
         String fileName = "Toys.txt";
         try (FileWriter writer = new FileWriter(fileName, true))
@@ -31,6 +31,11 @@ public class ToyStore {
 
             System.out.println(ex.getMessage());
         }
-        toys.remove(toy);
+        if (toy.getQuantity() >= 1) {
+            toy.setQuantity(toy.getQuantity() - 1);
+        } else {
+            toys.remove(toy);
+        }
+        System.out.println("Your prize is recorded in a file 'Toys'");
     }
 }

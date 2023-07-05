@@ -1,18 +1,27 @@
 package toy_store.classes;
 
-@SuppressWarnings("ALL")
 public class Toy {
     int id;
     String name;
+    int quantity;
     double weight;
 
-    public Toy(int id, String name, double weight) {
+    public Toy(int id, String name, int quantity, double weight) {
         this.id = id;
         this.name = name;
+        this.quantity = quantity;
         this.weight = weight;
     }
 
-    public void setWeight(float weight) {
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
@@ -22,7 +31,7 @@ public class Toy {
 
     @Override
     public String toString() {
-        return "Идентификатор игрушки:" + id + "; Имя: " + name + "; Вес: " + weight;
+        return "Идентификатор игрушки:" + id + "; Имя: " + name + "; Остаток: " + quantity + "; Вес: " + weight;
     }
 
 }
